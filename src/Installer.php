@@ -24,7 +24,7 @@ class Installer
     public static function postInstall(Event $event = null)
     {
         // Copy CodeIgniter files
-        self::recursiveCopy('vendor/codeigniter4/framework/application', 'application');
+        self::recursiveCopy('vendor/codeigniter4/framework/app', 'app');
         self::recursiveCopy('vendor/codeigniter4/framework/public', 'public');
         self::recursiveCopy('vendor/codeigniter4/framework/writable', 'writable');
         self::recursiveCopy('vendor/codeigniter4/framework/tests', 'tests');
@@ -73,7 +73,7 @@ class Installer
 
     private static function replacePaths()
     {
-        $file = 'application/Config/Paths.php';
+        $file = 'app/Config/Paths.php';
         $contents = file_get_contents($file);
         $contents = str_replace(
             'public $systemDirectory = \'system\';',
